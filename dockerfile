@@ -7,5 +7,5 @@ RUN npm i --production
 
 COPY . /app/
 
-EXPOSE 80
+EXPOSE 443
 CMD [ "node", "app.js" ]
