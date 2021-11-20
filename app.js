@@ -48,7 +48,6 @@ const io = socketio(server, {
     }
 })
 
-const users = {}
 io.on('connection', (socket) => {
     console.log('User Connected');
     socket.on('messages', (msg) => {
@@ -62,7 +61,7 @@ io.on('connection', (socket) => {
 
 });
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 80;
 
 server.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}.`);
