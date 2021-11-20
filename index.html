@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Socket.IO chat</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+      integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+      crossorigin="anonymous"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font: 13px Helvetica, Arial;
+      }
+      form {
+        background: #000;
+        padding: 3px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: var(--dark-color-a);
+      }
+      form input {
+        border: 1;
+        padding: 10px;
+        width: 90%;
+        margin-right: 0.5%;
+        font-size: 16px;
+        height: 40px;
+        flex: 1;
+      }
+      form button {
+        cursor: pointer;
+        width: 9%;
+        background: rgb(130, 224, 255);
+        border: none;
+        padding: 10px;
+        font-size: 17px;
+      }
+      #messages {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+      #messages li {
+        padding: 5px 10px;
+      }
+      #messages li:nth-child(odd) {
+        background: #eee;
+      }
+    </style>
+  </head>
+  <body>
+    <ul id="messages"></ul>
+    <form action="">
+      <input
+        id="send"
+        type="text"
+        placeholder="Enter Message"
+        required
+        autocomplete="off"
+      />
+      <button class="btn"><i class="fas fa-paper-plane"></i> Send</button>
+    </form>
+  </body>
+</html>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.9.2/qs.min.js"
+  integrity="sha256-TDxXjkAUay70ae/QJBEpGKkpVslXaHHayklIVglFRT4="
+  crossorigin="anonymous"
+></script>
+<script src="https://cdn.socket.io/4.3.1/socket.io.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.slim.js"></script>
+<script>
+  $(function () {
+    const socket = io("");
+    $("form").submit(function (e) {
+      e.preventDefault();
+      socket.emit("messages", $("#send").val());
+      $("#send").val("");
+      return false;
+    });
+    socket.on("messages", function (msg) {
+      $("#messages").append($("<li>").text(msg));
+    });
+  });
+</script>

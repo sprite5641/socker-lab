@@ -1,0 +1,31 @@
+{
+  "name": "lottery-socket",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/infinitycode-co/lottery-socket.git"
+  },
+  "keywords": [
+    "socket"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/infinitycode-co/lottery-socket/issues"
+  },
+  "homepage": "https://github.com/infinitycode-co/lottery-socket#readme",
+  "dependencies": {
+    "dayjs": "^1.10.7",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.14",
+    "socket.io": "^4.3.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.1.0"
+  }
+}
